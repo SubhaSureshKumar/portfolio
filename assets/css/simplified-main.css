@@ -1,0 +1,449 @@
+@import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
+
+/*
+	Simplified version - Article display only
+*/
+
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	-webkit-text-size-adjust: none;
+}
+
+mark {
+	background-color: transparent;
+	color: inherit;
+}
+
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input, select, textarea {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+}
+
+/* Basic */
+
+@-ms-viewport {
+	width: device-width;
+}
+
+@media screen and (max-width: 480px) {
+	html, body {
+		min-width: 320px;
+	}
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	background: #1b1f22;
+	min-height: 100vh;
+	padding: 2rem;
+}
+
+/* Type */
+
+html {
+	font-size: 16pt;
+}
+
+@media screen and (max-width: 1680px) {
+	html {
+		font-size: 12pt;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	html {
+		font-size: 11pt;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	html {
+		font-size: 10pt;
+	}
+}
+
+body, input, select, textarea {
+	color: #ffffff;
+	font-family: "Source Sans Pro", sans-serif;
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.65;
+}
+
+a {
+	-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+	-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+	-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+	border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	border-bottom-color: transparent;
+}
+
+strong, b {
+	color: #ffffff;
+	font-weight: 600;
+}
+
+em, i {
+	font-style: italic;
+}
+
+p {
+	margin: 0 0 2rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #ffffff;
+	font-weight: 600;
+	line-height: 1.5;
+	margin: 0 0 1rem 0;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: inherit;
+	text-decoration: none;
+}
+
+h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
+	border-bottom: solid 1px #ffffff;
+	width: -moz-max-content;
+	width: -webkit-max-content;
+	width: -ms-max-content;
+	width: max-content;
+	padding-bottom: 0.5rem;
+	margin: 0 0 2rem 0;
+}
+
+h1 {
+	font-size: 2.25rem;
+	line-height: 1.3;
+	letter-spacing: 0.5rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	line-height: 1.4;
+	letter-spacing: 0.5rem;
+}
+
+h3 {
+	font-size: 1rem;
+}
+
+h4 {
+	font-size: 0.8rem;
+}
+
+h5 {
+	font-size: 0.7rem;
+}
+
+h6 {
+	font-size: 0.6rem;
+}
+
+@media screen and (max-width: 736px) {
+	h1 {
+		font-size: 1.75rem;
+		line-height: 1.4;
+	}
+
+	h2 {
+		font-size: 1.25em;
+		line-height: 1.5;
+	}
+}
+
+/* Image */
+
+.image {
+	border-radius: 4px;
+	border: 0;
+	display: inline-block;
+	position: relative;
+}
+
+.image img {
+	border-radius: 4px;
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+figure {
+	margin: 2rem 0;
+}
+
+figure img {
+	border-radius: 4px;
+	max-width: 100%;
+	height: auto;
+}
+
+/* BG */
+
+#bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 1;
+}
+
+#bg:before, #bg:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#bg:before {
+	background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
+	background-size: auto, 256px 256px;
+	background-position: center, center;
+	background-repeat: no-repeat, repeat;
+	z-index: 2;
+}
+
+#bg:after {
+	background-image: url("../../images/bg.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: 1;
+	filter: blur(0.2rem);
+}
+
+/* Wrapper */
+
+#wrapper {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	max-width: 62rem;
+	margin: 0 auto;
+	padding: 3rem 2rem;
+	z-index: 3;
+}
+
+@media screen and (max-width: 736px) {
+	#wrapper {
+		padding: 2rem 1rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#wrapper {
+		padding: 1rem;
+	}
+}
+
+/* Main */
+
+#main {
+	position: relative;
+	z-index: 3;
+}
+
+#main article {
+	padding: 3rem 2.5rem;
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	background-color: rgba(27, 31, 34, 0.85);
+	border-radius: 4px;
+	opacity: 1;
+}
+
+#main article .article-header {
+	margin-bottom: 2rem;
+	border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+	padding-bottom: 1.5rem;
+}
+
+#main article .subtitle {
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 0.9rem;
+	font-weight: 300;
+	margin-top: 0.5rem;
+}
+
+#main article section {
+	margin-bottom: 3rem;
+}
+
+#main article .step {
+	margin-bottom: 2.5rem;
+}
+
+@media screen and (max-width: 736px) {
+	#main article {
+		padding: 2rem 1.5rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#main article {
+		padding: 1.5rem 1rem;
+	}
+}
+
+/* Close button */
+#main article .close {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 4rem;
+	height: 4rem;
+	cursor: pointer;
+	text-indent: 4rem;
+	overflow: hidden;
+	white-space: nowrap;
+	border-bottom: none;
+}
+
+#main article .close:before {
+	-moz-transition: background-color 0.2s ease-in-out;
+	-webkit-transition: background-color 0.2s ease-in-out;
+	-ms-transition: background-color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out;
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0.75rem;
+	left: 0.75rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 100%;
+	background-position: center;
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+}
+
+#main article .close:hover:before {
+	background-color: rgba(255, 255, 255, 0.075);
+}
+
+#main article .close:active:before {
+	background-color: rgba(255, 255, 255, 0.175);
+}
+
+@media screen and (max-width: 736px) {
+	#main article .close:before {
+		top: 0.875rem;
+		left: 0.875rem;
+		width: 2.25rem;
+		height: 2.25rem;
+		background-size: 14px 14px;
+	}
+}
+
+/* Close/Return link styling */
+p a {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	border: solid 1px rgba(255, 255, 255, 0.5);
+	border-radius: 4px;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	letter-spacing: 0.2rem;
+	transition: background-color 0.2s ease;
+}
+
+p a:hover {
+	background-color: rgba(255, 255, 255, 0.075);
+	border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+}
+/* Restore list styles for article content */
+#main article ul {
+	list-style-type: disc;
+	padding-left: 2rem;
+	margin-left: 0;
+	margin-bottom: 2rem;
+}
+
+#main article ol {
+	list-style-type: decimal;
+	padding-left: 2rem;
+	margin-left: 0;
+	margin-bottom: 2rem;
+}
+
+#main article li {
+	display: list-item;
+	margin-bottom: 0.5rem;
+	line-height: 1.65;
+}

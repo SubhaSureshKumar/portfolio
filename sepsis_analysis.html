@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> Critical Care Intelligence</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/simplified-main.css" />
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+
+				<!-- Article -->
+				<article id="excel">
+
+					<a href="index.html#projects" class="close">Close</a>
+
+					<header class="article-header">
+						<h2 class="major">Clinical Decision Support:</h2>
+						<h2>Multi-Organ Failure Monitoring in Sepsis Patients</h2>
+						<h3 class="subtitle">Critical Care Intelligence Using Power BI</h3>
+					</header>
+
+					<section class="project-overview">
+						<h3>Project Overview</h3>
+						<p>
+							Sepsis is a life-threatening condition caused by the body's extreme response to infection, 
+							leading to tissue damage, organ failure, and death if not detected early. With mortality rates 
+							reaching 30-50% in severe cases, early identification and intervention are critical to saving lives.
+							I Developed an interactive Power BI dashboard to monitor sepsis progression across 40,000+ patient records, 
+							identify high-risk patients, track multi-organ failure indicators, and enable clinical teams to 
+							intervene before patients reach septic shock.
+						</p>
+					</section>
+					<!-- PROBLEM STATEMENT -->
+						<section class="problem-statement">
+    						<h3>Problem Statement</h3>
+    						<p>Sepsis affects approximately 1.7 million adults in America each year and contributes to 270,000+ deaths. Early detection is critical, as each hour of delayed treatment increases mortality risk by 4-8%. Healthcare organizations needed a comprehensive analytical tool to:</p>
+    							<ul>
+        							<li>Identify high-risk patient demographics</li>
+        							<li>Track progression from SIRS to septic shock</li>
+        							<li>Monitor organ failure patterns (kidney, liver, heart, lungs)</li>
+        							<li>Analyze ICU/SICU admission patterns and length of stay</li>
+       			 					<li>Enable data-driven early intervention strategies</li>
+    							</ul>
+						</section>
+					<section class="methodology">
+						<h3>Data Preparation</h3>
+							<ul>
+        						<li><strong>Dataset:</strong> 40,336 patient records with demographic, clinical, and temporal data</li>
+        						<li><strong>Key Variables:</strong> Age, gender, vital signs (HR, temp, respiratory rate, WBC), organ function markers (BUN, creatinine, chloride, lactate, troponin, bilirubin), ICU/SICU status</li>
+        						<li><strong>Data Cleaning:</strong> Handled missing values, standardized medical units, validated clinical ranges</li>
+        						<li><strong>Feature Engineering:</strong> Created calculated fields for SIRS criteria, organ failure indicators, age groups, and risk stratification</li>
+								<li><strong>Data Model:</strong> Star Schema design with central Patient fact table</li>
+							</ul>
+						<div class="step">
+							
+							<figure>
+								<img src="images/sepsis_intro.jpg" alt="Demographics Dashboard Screen" loading="lazy" />
+							</figure>
+						</div>
+
+						<div class="step">
+							<h3>Dashboard Design Strategy</h3>
+							<ul>
+        						<li><strong>Progressive Disclosure:</strong> Structured pages from overview → SIRS → organ-specific analysis → septic shock</li>
+        						<li><strong>Clinical Workflow Alignment:</strong> Mirrored actual sepsis progression pathway for intuitive navigation</li>
+        						<li><strong>Interactive Filtering:</strong> Age group slicers, gender filters, sepsis label toggles for dynamic exploration</li>
+        						<li><strong>Color-Coded Severity:</strong> Yellow (SIRS) → Orange (Sepsis) → Red (Severe Sepsis) → Dark Red (Septic Shock)</li>
+    						</ul>
+							<figure>
+								<img src="images/sepsis_sirs.jpg" alt="Dashboard showing SIRS criteria" loading="lazy" />
+							</figure>
+						</div>
+
+					</section>
+
+					<section class="results">
+						<h3>Advanced Analytics & DAX Calculations</h3>
+    						<ul>
+        						<li>Created measures for sepsis onset rate, ICU admission ratios, average length of stay by severity</li>
+        						<li>Built risk stratification models based on age and vital signs</li>
+        						<li>Developed organ failure scoring based on clinical thresholds (BUN/Creatinine ratio, bilirubin levels, troponin elevation, lactate accumulation)</li>
+        						<li>Implemented time-series analysis for patient trajectory tracking</li>
+    						</ul>
+						<figure>
+								<img src="images/sepsis_organ.jpg" alt="Dashboard showing organ failure patterns" loading="lazy" />
+								<img src="images/sepsis_organ2.jpg" alt="Dashboard showing organ failure patterns" loading="lazy" />
+							</figure>
+							<h3>Key DAX Measures (Examples)</h3>
+<pre><code>
+Sepsis Onset Rate = DIVIDE(CALCULATE(COUNT('Patient'[Patient_ID]), 'Patient'[Sepsis_Label] = 1),COUNT('Patient'[Patient_ID]),0)* 100
+Average LOS by Sepsis = CALCULATE(AVERAGE('Patient'[Length_of_Stay]),'Patient'[Sepsis_Label] = 1)
+Organ Failure Count = COUNTROWS(FILTER('Patient','Patient'[BCR_Ratio] > 20 || 'Patient'[Bilirubin_Direct] > 0.3 ||<br> 'Patient'[Troponin] > 0.04 || 'Patient'[Lactate] > 1))
+</code></pre>
+					</section>
+
+					<!-- KEY INSIGHTS -->
+<section class="insights">
+    <h2>Key Insights & Findings</h2>
+    
+    <div class="insight-card">
+        <h3>🔍 Demographic Patterns</h3>
+        <ul>
+            <li>Male patients constitute 55.95% of the dataset, showing slightly higher sepsis prevalence</li>
+            <li>Peak sepsis risk occurs in the 50-70 age range</li>
+            <li>Average length of stay for sepsis patients is 26.99 days, significantly higher than non-sepsis patients</li>
+        </ul>
+    </div>
+    
+    <div class="insight-card">
+        <h3>📈 Sepsis Progression</h3>
+        <ul>
+            <li>2.89% of all patients developed sepsis (1,167 out of 40,336)</li>
+            <li>Clear progression pathway visible from SIRS through septic shock stages</li>
+            <li>265 patients identified at high risk for septic shock, requiring immediate intervention</li>
+        </ul>
+    </div>
+    
+    <div class="insight-card">
+        <h3>🫀 Organ Failure Patterns</h3>
+        <ul>
+            <li><strong>Kidney:</strong> BUN/Creatinine ratios >20 indicate kidney damage in acute cases</li>
+            <li><strong>Liver:</strong> Bilirubin levels and AST elevation correlate with hypoxic hepatitis and liver dysfunction</li>
+            <li><strong>Heart:</strong> Elevated troponin levels show cardiac involvement, with clear MAP-HR correlation</li>
+            <li><strong>Lungs:</strong> O2Sat levels and respiratory rate patterns indicate respiratory compromise</li>
+        </ul>
+		<img src="images/sepsis_shock.jpg" alt="Dashboard showing septic shock progression" loading="lazy" style="max-width: 100%; height: auto;" />
+    </div>
+    
+</section>
+
+<!-- IMPACT & OUTCOMES -->
+<section class="impact">
+    <h2>Potential Impact & Outcomes</h2>
+    
+    <h3>Healthcare Provider & Administrative Benefits</h3>
+    <ul>
+        <li><strong>Early Detection:</strong> SIRS criteria monitoring enables intervention before progression to severe sepsis.<br> Age-based risk stratification can enable targeted screening protocols</li>
+        <li><strong>Resource Optimization:</strong> Predictive insights help allocate ICU beds and medical staff efficiently</li>
+        <li><strong>Improved Patient Outcomes:</strong> Data-driven treatment protocols can reduce the 26.99-day average LOS by <br> Multi-organ monitoring essential as sepsis affects kidneys, liver, heart, and lungs simultaneously</li>
+        <li><strong>Cost Reduction:</strong> Early intervention reduces expensive ICU stays and emergency treatments</li>
+	</ul>
+    
+</section>
+
+				</article>
+
+			</div>
+
+			<!-- BG -->
+			<div id="bg"></div>
+
+		</div>
+
+
+	<script>
+		// Click outside article to close/return to main page
+		document.addEventListener('DOMContentLoaded', function() {
+			const article = document.querySelector('#main article');
+			const bg = document.getElementById('bg');
+			const wrapper = document.getElementById('wrapper');
+			
+			// Function to navigate back
+			function goBack() {
+				window.location.href = 'index.html#projects';
+			}
+			
+			// Click on background to close
+			if (bg) {
+				bg.addEventListener('click', goBack);
+			}
+			
+			// Click outside article (but inside wrapper) to close
+			wrapper.addEventListener('click', function(event) {
+				// If click is not on the article or its children
+				if (!article.contains(event.target)) {
+					goBack();
+				}
+			});
+			
+			// Prevent clicks inside article from triggering the close
+			if (article) {
+				article.addEventListener('click', function(event) {
+					event.stopPropagation();
+				});
+			}
+		});
+	</script>
+
+	</body>
+</html>	
+	

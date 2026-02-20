@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Road to a Decision</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/simplified-main.css" />
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+
+				<!-- Article -->
+				<article id="excel">
+
+					<a href="index.html#projects" class="close">Close</a>
+
+					<header class="article-header">
+						<h2 class="major">Road to a Decision: Car Buying Scorecard</h2>
+						<h3 class="subtitle">Multi-Criteria Ranking Analysis in Microsoft Excel</h3>
+					</header>
+
+					<section class="project-overview">
+						<h3>Project Overview</h3>
+						<p>
+							This Excel project applies a structured <strong>Multi-Criteria Decision Analysis (MCDA)</strong> 
+							framework to objectively rank 11 candidate vehicles for purchase. Rather than relying on subjective 
+							preference, the analysis assigns weighted scores to each vehicle across several performance and value 
+							dimensions, enabling a transparent, data-backed final recommendation.
+						</p>
+					</section>
+
+					<section class="methodology">
+						<h3>Methodology</h3>
+
+						<div class="step">
+							<h4>Step 1 — Raw Data Collection</h4>
+							<p>
+								Eleven vehicles were evaluated across nine attributes: Horsepower, Weight (lbs), Power-to-Weight 
+								Ratio, MPG City, MPG Highway, Fuel Efficiency, Drive Type (AWD/FWD), Rear Legroom, Boot Space, 
+								Safety Rating, and Total Price. All data was compiled into a structured raw data table to serve 
+								as the foundation for further analysis.
+							</p>
+							<figure>
+								<img src="images/excel_raw1.jpg" alt="Raw data table showing 11 vehicles and their attributes" loading="lazy" />
+							</figure>
+						</div>
+
+						<div class="step">
+							<h4>Step 2 — Data Normalization</h4>
+							<p>
+								To allow fair comparison across attributes with different units and scales, all numeric values 
+								were normalized to a <strong>0–100 scale</strong> using min-max normalization. Each car's score 
+								per attribute was expressed as a percentage of the maximum value observed in that category. For 
+								Total Price, an <em>inverse normalization</em> was applied so that lower cost yields a higher 
+								score — reflecting the buyer's preference for affordability.
+							</p>
+							<figure>
+								<img src="images/excel_normal1.jpg" alt="Normalized data table with scores scaled from 0 to 100" loading="lazy" />
+							</figure>
+						</div>
+
+						<div class="step">
+							<h4>Step 3 — Weighted Scoring &amp; Ranking</h4>
+							<p>
+								Four key attributes were selected for the final ranking, each assigned a weight based on buyer 
+								priority: <strong>Power-to-Weight Ratio (30%)</strong>, <strong>Safety Rating (30%)</strong>, 
+								<strong>Fuel Efficiency (20%)</strong>, and <strong>Rear Legroom (20%)</strong>. Each car's 
+								weighted score was calculated by multiplying its normalized score in each category by the 
+								corresponding weight, then summing the results. Vehicles were then ranked from highest to 
+								lowest total score.
+							</p>
+							<figure>
+								<img src="images/excel_rank1.jpg" alt="Weighted scoring table showing final rankings" loading="lazy" />
+							</figure>
+						</div>
+
+					</section>
+
+					<section class="results">
+						<h4>Results</h4>
+						<p>
+							The <strong>Nissan Maxima</strong> emerged as the top-ranked vehicle (92.24), leading in 
+							Power-to-Weight ratio. The <strong>Acura RLX</strong> placed 
+							second (91.82), followed closely by the <strong>Honda Accord</strong> (91.60), which offered 
+							the best all-round balance of efficiency, space, and safety.
+						</p>
+					</section>
+
+					<section class="conclusion">
+						<h4>Conclusion</h4>
+						<p>
+							This project demonstrates how Excel can transform a complex personal decision into an objective, 
+							repeatable process. By combining min-max normalization with a weighted scoring model, raw vehicle 
+							data is converted into a clear ranked recommendation than going by intution or guessing. The framework is fully 
+							adaptable: weights and criteria can be tuned to match any buyer's unique priorities.
+						</p>
+					</section>
+
+				</article>
+
+			</div>
+
+			<!-- BG -->
+			<div id="bg"></div>
+
+		</div>
+		<script>
+		// Click outside article to close/return to main page
+		document.addEventListener('DOMContentLoaded', function() {
+			const article = document.querySelector('#main article');
+			const bg = document.getElementById('bg');
+			const wrapper = document.getElementById('wrapper');
+			
+			// Function to navigate back
+			function goBack() {
+				window.location.href = 'index.html#projects';
+			}
+			
+			// Click on background to close
+			if (bg) {
+				bg.addEventListener('click', goBack);
+			}
+			
+			// Click outside article (but inside wrapper) to close
+			wrapper.addEventListener('click', function(event) {
+				// If click is not on the article or its children
+				if (!article.contains(event.target)) {
+					goBack();
+				}
+			});
+			
+			// Prevent clicks inside article from triggering the close
+			if (article) {
+				article.addEventListener('click', function(event) {
+					event.stopPropagation();
+				});
+			}
+		});
+	</script>
+
+	</body>
+</html>
+	</body>
+</html>
